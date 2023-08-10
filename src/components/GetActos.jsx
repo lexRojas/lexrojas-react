@@ -6,6 +6,7 @@ export default function GetActos({idRegistro}) {
 
   useEffect(() => {
     fetchData();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [idRegistro]);
 
   const fetchData = async () => {

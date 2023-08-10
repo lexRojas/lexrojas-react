@@ -1,5 +1,5 @@
 import { Form, Card, Button } from "react-bootstrap";
-import {useState, useEffect} from "react"
+import {useState} from "react"
 import GetRegistros from "./GetRegistros";
 import GetActos from "./GetActos";
 
