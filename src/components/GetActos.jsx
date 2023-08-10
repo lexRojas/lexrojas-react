@@ -1,41 +1,18 @@
 import React, { useEffect, useState } from "react";
 //import axios from "axios";
 
-export default function GetActos(idActo = -1) {
+export default function GetActos({idRegistro}) {
   const [Actos, setData] = useState(null);
-  // const [loading, setLoading] = useState(true);
-  // const [error, setError] = useState(null);
-  // useEffect(() => {
-
-  //   const response = await fetch('http://localhost:8000/registros');
-  //   const jsonData = await response.json();
-  //   setData(jsonData);
-
-  //   axios("http://localhost:8000/actos", {
-  //     mode:'no-cors',
-  //     params: idActo
-  //   },[idActo])
-  //     .then((response) => {
-  //       setData(response.data);
-  //     })
-  //     .catch((error) => {
-  //       console.error("Error fetching data: ", error);
-  //       setError(error);
-  //     })
-  //     .finally(() => {
-  //       setLoading(false);
-  //     });
-  // }, []);
-  // if (loading) return "Loading...";
-  // if (error) return "Error!";
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [idRegistro]);
 
   const fetchData = async () => {
     try {
-      const response = await fetch("http://localhost:8000/actos?idActo=-1");
+
+      const sql =  "http://localhost:8000/actos?idRegistro=".concat(idRegistro)
+        const response = await fetch(sql);
       const jsonData = await response.json();
       setData(jsonData);
     } catch (error) {

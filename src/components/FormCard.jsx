@@ -1,21 +1,26 @@
 import { Form, Card, Button } from "react-bootstrap";
+import {useState, useEffect} from "react"
 import GetRegistros from "./GetRegistros";
 import GetActos from "./GetActos";
 
+
+
 function FormCard() {
+  const [idRegistro, setIdRegistro] = useState("-1")
+
   return (
     <Card>
       <Card.Body>
         <Form>
           <Form.Group className="mb-3" controlId="datos">
             <Form.Label>Registro</Form.Label>
-            <Form.Select aria-label="Default select example">
+            <Form.Select id="select1" aria-label="Default select example" onChange= {(event) => setRegistro(event.target.value)}> 
               <GetRegistros />
             </Form.Select>
 
             <Form.Label>Actos</Form.Label>
             <Form.Select aria-label="Default select example">
-              <GetActos idActo = "4" />
+              <GetActos idRegistro = {idRegistro} />
             </Form.Select>
           </Form.Group>
           <Form.Group className="mb-3" controlId="formGroupPassword">
@@ -32,6 +37,18 @@ function FormCard() {
       </Card.Body>
     </Card>
   );
-}
+  function setRegistro(value){
+    setIdRegistro(value)
+  }
+  
+};
+
+
+
+
+
+
 
 export default FormCard;
+
+
