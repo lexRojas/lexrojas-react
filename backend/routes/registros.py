@@ -4,7 +4,7 @@ from config.db  import conn
 registros = APIRouter();
 
 @registros.get("/registros")
-def getRegistros():
+async def getRegistros():
       with conn.cursor() as cursor:
         # Read a single record
         sql = "SELECT * FROM REGISTRO"

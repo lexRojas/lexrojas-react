@@ -4,7 +4,7 @@ from config.db  import conn
 actos = APIRouter();
 
 @actos.get("/actos")
-def geActos(idActo:int = -1):
+async def geActos(idActo:int = -1):
       with conn.cursor() as cursor:
         # Read a single record
         if (idActo==-1):

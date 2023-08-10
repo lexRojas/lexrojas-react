@@ -35,7 +35,7 @@ export default function GetActos(idActo = -1) {
 
   const fetchData = async () => {
     try {
-      const response = await fetch("http://localhost:8000/actos?idActo=-1", {mode: 'cors'});
+      const response = await fetch("http://localhost:8000/actos?idActo=-1");
       const jsonData = await response.json();
       setData(jsonData);
     } catch (error) {
