@@ -10,7 +10,7 @@ const GetRegistros = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch('http://localhost:8000/registros');
+      const response = await fetch('https://lexrojas-backend-c21ed8c2c96d.herokuapp.com/registros');
       const jsonData = await response.json();
       setData(jsonData);
     } catch (error) {

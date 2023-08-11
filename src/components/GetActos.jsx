@@ -12,7 +12,7 @@ export default function GetActos({idRegistro}) {
   const fetchData = async () => {
     try {
 
-      const sql =  "http://localhost:8000/actos?idRegistro=".concat(idRegistro)
+      const sql =  "https://lexrojas-backend-c21ed8c2c96d.herokuapp.com/actos?idRegistro=".concat(idRegistro)
         const response = await fetch(sql);
       const jsonData = await response.json();
       setData(jsonData);
