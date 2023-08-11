@@ -8,7 +8,6 @@ app = FastAPI()
 
 origins = [
     "http://localhost:3000",
-    "https://main--glittering-crisp-9fb36c.netlify.app/",
     "localhost:3000"
 ]
 
