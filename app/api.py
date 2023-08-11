@@ -8,7 +8,8 @@ app = FastAPI()
 
 origins = [
     "http://localhost:3000",
-    "localhost:3000"
+    "localhost:3000",
+    "notario-fastapi-08fad7375e5f.herokuapp.com"
 ]
 
 
