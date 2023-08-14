@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-
+import axios from 'axios'
 
 const GetRegistros = () => {
   const [data, setData] = useState(null);
@@ -8,15 +8,31 @@ const GetRegistros = () => {
     fetchData();
   }, []);
 
+  const baseURL = "https://lexrojas-backend-c21ed8c2c96d.herokuapp.com/registros";
+
   const fetchData = async () => {
-    try {
-      const response = await fetch('https://lexrojas-backend-c21ed8c2c96d.herokuapp.com/registros');
-      const jsonData = await response.json();
-      setData(jsonData);
-    } catch (error) {
-      console.log('Error fetching data:', error);
-    }
+    await axios.get(baseURL)
+    .then(function (response) {
+      setData(response.data)
+      console.log(response)
+    })
+    .catch(function (error) {
+      console.log(error);
+    })  
   };
+
+  
+  // const fetchData = async () => {
+  //   try {
+  //     const response = await fetch('https://lexrojas-backend-c21ed8c2c96d.herokuapp.com/registros');
+  //     const jsonData = await response.json();
+  //     setData(jsonData);
+  //   } catch (error) {
+  //     console.log('Error fetching data:', error);
+  //   }
+  // };
+
+
 
   if (data) { return (
       (data.map((o) => (
